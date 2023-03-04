@@ -1,0 +1,133 @@
+body{
+    background-color: black;
+    height: 500vh;
+    position: relative;
+    display: flex;
+}
+
+.pare{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    position: fixed;
+    flex-wrap: wrap;
+    
+}
+#quadre1{
+    width: 40%;
+}
+
+#quadre2{
+    width: 40%;
+}
+
+.quadresard{
+    width: 40%;
+}
+
+#quadre3{
+    width: 90%;
+    margin-left: 5%;
+    position:absolute;
+    bottom:0px;
+    /*Aquesta animacio de "fade in" es pausa quan no es fa scroll*/
+    animation: polishflag 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+#quadre4{
+    /*No he aconseguit que aquest quadre s'adjusti bé segons viewport. Em funciona bé si el viewport és mitja pantalla*/
+    width: 25%;
+    margin-left: 28%;
+    position: absolute;
+    bottom:3%;
+    animation: escutburg 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+#quadre1> img{
+    width:100%;
+   
+}
+
+.quadreanimacio{
+    animation: rum 2s ease-in-out 0s 1 reverse forwards;
+}
+
+.quadreanimacio2{
+    animation: rum 2s ease-in-out 0s 1 normal forwards;
+}
+
+
+#quadre2> img{
+    width:100%;
+}
+
+#quadre3> img{
+    width:100%;
+}
+
+#quadre4> img{
+    width:100%;
+}
+
+@keyframes rum {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+/*Opacity fa que ens aparegui la bandera al fer scroll*/
+@keyframes polishflag {
+	0% {
+		opacity: 0
+	}
+
+    90% {
+        opacity: 0
+    }
+    95% {
+        opacity: 0.3
+    }
+	98% {
+		opacity: 1
+	}
+    100%{
+        opacity: 1
+    }
+}
+/*La opacity va igual que a polishflag, pero li fiquem el translateX per a que es mogui de dreta a esquerra*/
+@keyframes escutburg {
+	0% {
+		transform: translateX(200px);
+        opacity: 0;
+	}
+
+    90% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    95% {
+        transform: translateX(0px);
+        opacity: 0.3;
+    }
+	98% {
+		transform: translateX(-100px);
+        opacity: 1;
+	}
+
+	100% {
+		transform: translateX(-100px);
+        opacity: 1;
+	}
+}
